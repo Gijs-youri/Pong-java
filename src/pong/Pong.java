@@ -113,7 +113,7 @@ public class Pong extends Application {
             //background
             HBox hbox = new HBox();
 
-            FileInputStream input = new FileInputStream("C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\photos\\background-pong.png");
+            FileInputStream input = new FileInputStream("D:\\OneDrive\\School\\Graafschap College\\AO Leerjaar 1\\JAVA\\h2\\Pong\\Pong\\src\\photos\\background-pong.png");
 
             Image image = new Image(input);
 
