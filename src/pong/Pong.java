@@ -4,6 +4,7 @@ package pong;
  *
  * @author heete
  */
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Random;
 import java.util.logging.Level;
@@ -108,8 +109,6 @@ public class Pong extends Application {
             tl.setCycleCount(Timeline.INDEFINITE);
 
             //sound
-
-            
             //background
             HBox hbox = new HBox();
 
@@ -159,23 +158,41 @@ public class Pong extends Application {
             }
             if (ballYPos > height || ballYPos < 0) {
                 ballYSpeed *= -1;
+
             }
             if (ballXPos < playerOneXPos - PLAYER_WIDTH) {
+                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
+
+                Media sound = new Media(new File(musicFile).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
 
                 scoreP2++;
                 gameStarted = false;
             }
             if (ballXPos > playerTwoXPos + PLAYER_WIDTH) {
+                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
+
+                Media sound = new Media(new File(musicFile).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
+
                 scoreP1++;
                 gameStarted = false;
             }
             if (((ballXPos + BALL_R > playerTwoXPos) && ballYPos >= playerTwoYPos && ballYPos <= playerTwoYPos + PLAYER_HEIGHT)
                     || ((ballXPos < playerOneXPos + PLAYER_WIDTH) && ballYPos >= playerOneYPos && ballYPos <= playerOneYPos + PLAYER_HEIGHT)) {
+                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4374__noisecollector__pongblipf5.wav";
+
+                Media sound = new Media(new File(musicFile).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(sound);
+                mediaPlayer.play();
                 ballYSpeed += 1 * Math.signum(ballYSpeed);
                 ballXSpeed += 1 * Math.signum(ballXSpeed);
                 ballXSpeed *= -1;
                 ballYSpeed *= -1;
             }
+
             gc.fillText(scoreP1 + "\t\t\t\t\t\t\t\t" + scoreP2, width / 2, 100);
             gc.fillRect(playerTwoXPos, playerTwoYPos, PLAYER_WIDTH, PLAYER_HEIGHT);
             gc.fillRect(playerOneXPos, playerOneYPos, PLAYER_WIDTH, PLAYER_HEIGHT);
