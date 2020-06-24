@@ -42,6 +42,11 @@ import javafx.stage.Stage;
 public class Pong extends Application {
 
     private GraphicsContext gc;
+//    String rootpath = new String("D:\\OneDrive\\School\\Graafschap College\\AO Leerjaar 1\\JAVA\\h2\\Pong\\Pong\\src\\");
+//    String rootpath = new String("C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\");
+    final String dir = System.getProperty("user.dir");
+    
+        
 
     @Override
     public void start(Stage primaryStage) {
@@ -68,7 +73,9 @@ public class Pong extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
-
+        
+        System.out.println("" + dir);
+        
     }
 //PongGame
 
@@ -111,8 +118,9 @@ public class Pong extends Application {
             //sound
             //background
             HBox hbox = new HBox();
+            
 
-            FileInputStream input = new FileInputStream("D:\\OneDrive\\School\\Graafschap College\\AO Leerjaar 1\\JAVA\\h2\\Pong\\Pong\\src\\photos\\background-pong.png");
+            FileInputStream input = new FileInputStream(dir + "\\src\\photos\\background-pong.png");
 
             Image image = new Image(input);
 
@@ -161,7 +169,7 @@ public class Pong extends Application {
 
             }
             if (ballXPos < playerOneXPos - PLAYER_WIDTH) {
-                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
+                String musicFile = dir + "\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
 
                 Media sound = new Media(new File(musicFile).toURI().toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -171,7 +179,7 @@ public class Pong extends Application {
                 gameStarted = false;
             }
             if (ballXPos > playerTwoXPos + PLAYER_WIDTH) {
-                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
+                String musicFile = dir + "\\src\\sounds\\4376__noisecollector__pongblipg-4.wav";
 
                 Media sound = new Media(new File(musicFile).toURI().toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -182,7 +190,7 @@ public class Pong extends Application {
             }
             if (((ballXPos + BALL_R > playerTwoXPos) && ballYPos >= playerTwoYPos && ballYPos <= playerTwoYPos + PLAYER_HEIGHT)
                     || ((ballXPos < playerOneXPos + PLAYER_WIDTH) && ballYPos >= playerOneYPos && ballYPos <= playerOneYPos + PLAYER_HEIGHT)) {
-                String musicFile = "C:\\Users\\heete\\Desktop\\school\\java\\H2\\Pong\\src\\sounds\\4374__noisecollector__pongblipf5.wav";
+                String musicFile = dir + "\\src\\sounds\\4374__noisecollector__pongblipf5.wav";
 
                 Media sound = new Media(new File(musicFile).toURI().toString());
                 MediaPlayer mediaPlayer = new MediaPlayer(sound);
